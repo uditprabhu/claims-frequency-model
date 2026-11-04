@@ -1,16 +1,17 @@
 """
-How we judge a claim-frequency model.
+So how do we judge a claim-frequency model?
 
-Accuracy and R^2 are poor fits here: ~95% of policies have zero claims,
-so a model that always predicts 0 looks "accurate" but is useless for
-pricing. Insurers instead ask three questions:
+Accuracy and the R^2 are poor fits here: ~95% of policies have zero claims, so a model that always predicts a 0 
+looks "accurate" but it's useless for pricing. Insurers mainly ask 3 questions. 
 
-  1. Fit         - Poisson deviance: how likely are the observed claim
-                   counts under the model's predictions? (lower = better)
-  2. Ranking     - Gini coefficient: does the model put the risky
-                   policies at the top? (higher = better)
-  3. Calibration - do predicted total claims match actual total claims,
-                   overall and within each risk band?
+1. Fit - Poisson deviance: how likely are the observed claim
+   counts under the model's predictions? (lower = better)
+   
+2. Ranking - Gini coefficient: does the model put the risky
+   policies at the top? (higher = better)
+                   
+3. Calibration - do predicted total claims match actual total claims,
+   overall and within each risk band?
 """
 
 import numpy as np
